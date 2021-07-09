@@ -31,7 +31,12 @@ module.exports = {
         'kysymykset.choices': 'Vastausvaihtoehdot (valitse yksi/usea)',
         'kysymykset.min': 'Arvosteluasteikon minimi',
         'kysymykset.max': 'Arvosteluasteikon maksimi'
-      }
+      },
+      labels: {
+        Vouchers: 'Lahjakortit - myönnetyt',
+        Surveys: 'Kyselyt',
+        VoucherRegister: 'Lahjakorttirekisteri'
+      },
     },
   },
   dashboard: {

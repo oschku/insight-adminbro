@@ -25,7 +25,8 @@ const Cards = new Schema({
     formContent: String,
     formUrl: String,
     resetHours: Number,
-    minutes: Number
+    minutes: Number,
+    voucherId: Number,
   }, { timestamps: true });
   
   module.exports = model("Cards", Cards);

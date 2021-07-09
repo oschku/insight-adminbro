@@ -8,6 +8,8 @@ const admin = require('./admin/router')
 const User = require('./app/controllers/UserController')
 const Surveys = require('./app/controllers/SurveyController')
 const Cards = require('./app/controllers/CardsController')
+const Vouchers = require('./app/controllers/VouchersController')
+const VoucherRegister = require('./app/controllers/VoucherRegisterController')
 
 server
   .use(express.json())
@@ -20,6 +22,10 @@ server
   .get("/api/surveys/:id", Surveys.getOne)
   .get("/api/cards", Cards.index)
   .get("/api/cards/:id", Cards.getOne)
+  .get("/api/vouchers", Vouchers.index)
+  .get("/api/vouchers/:id", Vouchers.getOne)
+  .get("/api/vouchers/reg", VoucherRegister.index)
+  .get("/api/vouchers/reg/:id", VoucherRegister.getOne) 
 
 
 
