@@ -39,7 +39,6 @@ const actions = {
             actionRequested: "list",
         }),
     },
-    //...etc
 };
 
 const features = [];
