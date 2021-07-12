@@ -25,6 +25,7 @@ server
   .get("/api/cards/:id", Cards.getOne)
   .get("/api/vouchers", Vouchers.index)
   .get("/api/vouchers/:id", Vouchers.getOne)
+  .get("/api/vouchers/user/:id", Vouchers.getUser)
   .get("/api/vouchers/reg", VoucherRegister.index)
   .get("/api/vouchers/reg/:id", VoucherRegister.getOne)
   .get("/api/rouletteitems", RouletteItems.index)
