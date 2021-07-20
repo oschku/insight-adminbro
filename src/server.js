@@ -26,10 +26,11 @@ server
   .get("/api/vouchers", Vouchers.index)
   .get("/api/vouchers/:id", Vouchers.getOne)
   .get("/api/vouchers/user/:id", Vouchers.getUser)
-  .get("/api/vouchers/reg", VoucherRegister.index)
+  .get("/api/vouchers/reg/all", VoucherRegister.index)
   .get("/api/vouchers/reg/:id", VoucherRegister.getOne)
   .get("/api/rouletteitems", RouletteItems.index)
-  .get("/api/rouletteitems/:id", RouletteItems.getOne) 
+  .get("/api/rouletteitems/:id", RouletteItems.getOne)
+  .post("/api/vouchers", Vouchers.postVoucher) 
 
 
 
