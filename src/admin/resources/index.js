@@ -5,6 +5,7 @@ const Surveys = require('./surveys')
 const Vouchers = require('./vouchers')
 const VoucherRegister = require('./voucherRegister')
 const RouletteItems = require('./rouletteItems')
+const Coupons = require('./coupons')
 
 
 module.exports = [
@@ -14,5 +15,6 @@ module.exports = [
   Surveys,
   Vouchers,
   VoucherRegister,
-  RouletteItems
+  RouletteItems,
+  Coupons
 ]

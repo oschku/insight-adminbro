@@ -11,6 +11,7 @@ const Cards = require('./app/controllers/CardsController')
 const Vouchers = require('./app/controllers/VouchersController')
 const VoucherRegister = require('./app/controllers/VoucherRegisterController')
 const RouletteItems = require('./app/controllers/RouletteItemsController')
+const Coupons = require('./app/controllers/CouponsController')
 
 server
   .use(express.json())
@@ -30,7 +31,10 @@ server
   .get("/api/vouchers/reg/:id", VoucherRegister.getOne)
   .get("/api/rouletteitems", RouletteItems.index)
   .get("/api/rouletteitems/:id", RouletteItems.getOne)
-  .post("/api/vouchers", Vouchers.postVoucher) 
+  .post("/api/vouchers", Vouchers.postVoucher)
+  .get('/api/coupons', Coupons.index)
+  .get('/api/coupons/:id', Coupons.getOne)
+  .post('/api/coupons', Coupons.postCoupon) 
 
 
 
