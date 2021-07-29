@@ -37,12 +37,18 @@ module.exports = {
       partnerId,
       benefitValue,
       benefitType,
-      name
+      name,
+      redeemed: false
     })
 
     await voucher.save()
     res.send(200, 'Voucher saved succesfully')
   
-  }
+  },
+
+ 
+    
+
+ 
 
 };
