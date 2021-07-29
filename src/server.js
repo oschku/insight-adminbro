@@ -29,6 +29,7 @@ server
   .get("/api/vouchers/user/:id", Vouchers.getUser)
   .get("/api/vouchers/reg/all", VoucherRegister.index)
   .get("/api/vouchers/reg/:id", VoucherRegister.getOne)
+  .post('/api/vouchers/reg', VoucherRegister.post)
   .get("/api/rouletteitems", RouletteItems.index)
   .get("/api/rouletteitems/:id", RouletteItems.getOne)
   .post("/api/vouchers", Vouchers.postVoucher)
