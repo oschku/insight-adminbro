@@ -36,7 +36,8 @@ module.exports = {
         Vouchers: 'Lahjakortit - myönnetyt',
         Surveys: 'Kyselyt',
         VoucherRegister: 'Lahjakorttirekisteri',
-        RouletteItems: 'Ruletti objektit'
+        RouletteItems: 'Ruletti objektit',
+        Boosts: 'Nostot'
       },
     },
   },
