@@ -26,7 +26,8 @@ module.exports = {
       partnerId,
       benefitValue,
       benefitType,
-      name
+      name,
+      qrCode
     } = req.body;
 
     console.log(req.body)
@@ -38,7 +39,8 @@ module.exports = {
       benefitValue,
       benefitType,
       name,
-      redeemed: false
+      redeemed: false,
+      qrCode
     })
 
     await voucher.save()

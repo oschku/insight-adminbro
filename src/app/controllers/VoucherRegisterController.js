@@ -59,7 +59,8 @@ module.exports = {
     
     const {
       userId,
-      voucherId
+      voucherId,
+      qrCode
     } = req.body;
 
     const filter = {
@@ -78,7 +79,8 @@ module.exports = {
 
     const filter2 = {
       userId,
-      voucherId
+      voucherId,
+      qrCode
     }
 
     console.log(filter2)

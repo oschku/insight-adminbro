@@ -27,6 +27,10 @@ const Vouchers = new Schema({
         type: String,
         required: true
     },
+    qrCode:{
+        type: String,
+        required: true
+    },
     dateStart: Date,
     valid: Date,
     description: String,

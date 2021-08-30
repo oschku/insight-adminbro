@@ -7,7 +7,7 @@ const properties = {
     tyyppi: {
         availableValues:
             [
-                { value: 'Voucher', label: 'Kuponki' },
+                { value: 'Voucher', label: 'Etukortti' },
                 { value: 'Feed', label: 'Uutisartikkeli' },
                 { value: 'Vastaa', label: 'Kyselyn kortti' }
             ]
