@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const express = require('express')
 const server = express()
+const rateLimit = require('express-rate-limit')
 
 const admin = require('./admin/router')
 const User = require('./app/controllers/UserController')
@@ -13,6 +14,12 @@ const VoucherRegister = require('./app/controllers/VoucherRegisterController')
 const RouletteItems = require('./app/controllers/RouletteItemsController')
 const Coupons = require('./app/controllers/CouponsController')
 const Boosts = require('./app/controllers/BoostsController')
+
+// Rate limiter for concurrent requests:
+const apiRequestLimiter = rateLimit({
+  windowMs: 5*1000, // 5 seconds
+  max: 1 // limit each IP to 1 requests per windowMs
+})
 
 server
   .use(express.json())
@@ -30,19 +37,19 @@ server
   .get('/api/vouchers/user/:id', Vouchers.getUser)
   .get('/api/vouchers/reg/all', VoucherRegister.index)
   .get('/api/vouchers/reg/:id', VoucherRegister.getOne)
-  .post('/api/vouchers/reg', VoucherRegister.post)
-  .post('/api/vouchers/reg/redeem', VoucherRegister.redeem)
+  .post('/api/vouchers/reg', apiRequestLimiter, VoucherRegister.post)
+  .post('/api/vouchers/reg/redeem', apiRequestLimiter, VoucherRegister.redeem)
   .get('/api/rouletteitems', RouletteItems.index)
   .get('/api/rouletteitems/:id', RouletteItems.getOne)
-  .post('/api/vouchers', Vouchers.postVoucher)
+  .post('/api/vouchers', apiRequestLimiter, Vouchers.postVoucher)
   .get('/api/coupons', Coupons.index)
   .get('/api/coupons/:id', Coupons.getOne)
-  .post('/api/coupons', Coupons.postCoupon)
+  .post('/api/coupons', apiRequestLimiter, Coupons.postCoupon)
   .get('/api/boosts', Boosts.index) 
 
 
 
-const run = async() => {
+const run = async () => {
     const { MONGO_URI, PORT } = process.env
 
     await mongoose.connect(MONGO_URI, {
