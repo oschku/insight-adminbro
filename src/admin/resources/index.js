@@ -7,6 +7,7 @@ const VoucherRegister = require('./voucherRegister')
 const RouletteItems = require('./rouletteItems')
 const Coupons = require('./coupons')
 const Boosts = require('./boosts')
+const Faqs = require('./faqs')
 
 
 module.exports = [
@@ -18,5 +19,6 @@ module.exports = [
   VoucherRegister,
   RouletteItems,
   Coupons,
-  Boosts
+  Boosts,
+  Faqs
 ]

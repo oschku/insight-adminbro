@@ -22,10 +22,12 @@ module.exports = {
       bronzeCoupons
     } = req.body;
 
+    console.log(req.body)
+
     const filter = {userId}
     const current = await Coupons.findOne(filter)
 
-    console.log(current)
+    
 
     if (current !== null){
       if (current.goldCoupons === undefined) current.goldCoupons = 0
@@ -43,6 +45,7 @@ module.exports = {
 
       const updatePoints = { goldCoupons, silverCoupons, bronzeCoupons } 
       
+      
        const coupons = await Coupons.findOneAndUpdate(filter, updatePoints, {
         new: true
     });
@@ -58,6 +61,7 @@ module.exports = {
       })
   
       await coupons.save()
+      
       res.send(200, 'Coupon saved succesfully')
     }  
   }

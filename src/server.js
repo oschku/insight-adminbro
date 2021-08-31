@@ -14,12 +14,24 @@ const VoucherRegister = require('./app/controllers/VoucherRegisterController')
 const RouletteItems = require('./app/controllers/RouletteItemsController')
 const Coupons = require('./app/controllers/CouponsController')
 const Boosts = require('./app/controllers/BoostsController')
+const Faqs = require('./app/controllers/FaqsController')
 
 // Rate limiter for concurrent requests:
 const apiRequestLimiter = rateLimit({
-  windowMs: 5*1000, // 5 seconds
+  windowMs: 500, // 0.5 seconds
   max: 1 // limit each IP to 1 requests per windowMs
 })
+
+const apiRequestLimiterCoup = rateLimit({
+  windowMs: 200, // 0.5 seconds
+  max: 1 // limit each IP to 1 requests per windowMs
+})
+
+const apiRequestLimiterReg = rateLimit({
+  windowMs: 50, // 0.5 seconds
+  max: 1 // limit each IP to 1 requests per windowMs
+})
+
 
 server
   .use(express.json())
@@ -38,14 +50,15 @@ server
   .get('/api/vouchers/reg/all', VoucherRegister.index)
   .get('/api/vouchers/reg/:id', VoucherRegister.getOne)
   .post('/api/vouchers/reg', apiRequestLimiter, VoucherRegister.post)
-  .post('/api/vouchers/reg/redeem', apiRequestLimiter, VoucherRegister.redeem)
+  .post('/api/vouchers/reg/redeem', apiRequestLimiterReg, VoucherRegister.redeem)
   .get('/api/rouletteitems', RouletteItems.index)
   .get('/api/rouletteitems/:id', RouletteItems.getOne)
   .post('/api/vouchers', apiRequestLimiter, Vouchers.postVoucher)
   .get('/api/coupons', Coupons.index)
   .get('/api/coupons/:id', Coupons.getOne)
-  .post('/api/coupons', apiRequestLimiter, Coupons.postCoupon)
-  .get('/api/boosts', Boosts.index) 
+  .post('/api/coupons', apiRequestLimiterCoup, Coupons.postCoupon)
+  .get('/api/boosts', Boosts.index)
+  .get('/api/faq', Faqs.index) 
 
 
 

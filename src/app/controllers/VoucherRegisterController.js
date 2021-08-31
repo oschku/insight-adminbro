@@ -63,6 +63,7 @@ module.exports = {
       qrCode
     } = req.body;
 
+
     const filter = {
       voucherId
     }
@@ -79,7 +80,6 @@ module.exports = {
 
     const filter2 = {
       userId,
-      voucherId,
       qrCode
     }
 
@@ -92,6 +92,7 @@ module.exports = {
     await Vouchers.findOneAndUpdate(filter2, update2, {
       new: true
     });
+    console.log('voucher redeemed:', filter2)
 
 
     
