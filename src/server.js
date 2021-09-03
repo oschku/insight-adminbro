@@ -15,6 +15,7 @@ const RouletteItems = require('./app/controllers/RouletteItemsController')
 const Coupons = require('./app/controllers/CouponsController')
 const Boosts = require('./app/controllers/BoostsController')
 const Faqs = require('./app/controllers/FaqsController')
+const Socials = require('./app/controllers/SocialsController')
 
 // Rate limiter for concurrent requests:
 const apiRequestLimiter = rateLimit({
@@ -58,7 +59,10 @@ server
   .get('/api/coupons/:id', Coupons.getOne)
   .post('/api/coupons', apiRequestLimiterCoup, Coupons.postCoupon)
   .get('/api/boosts', Boosts.index)
-  .get('/api/faq', Faqs.index) 
+  .get('/api/faq', Faqs.index)
+  .get('/api/socials/all', Socials.index)
+  .get('/api/socials/:userId', Socials.getOne)
+  .post('/api/socials', Socials.postOne) 
 
 
 

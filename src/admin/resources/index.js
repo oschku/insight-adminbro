@@ -8,6 +8,7 @@ const RouletteItems = require('./rouletteItems')
 const Coupons = require('./coupons')
 const Boosts = require('./boosts')
 const Faqs = require('./faqs')
+const Socials = require('./socials')
 
 
 module.exports = [
@@ -20,5 +21,6 @@ module.exports = [
   RouletteItems,
   Coupons,
   Boosts,
-  Faqs
+  Faqs,
+  Socials
 ]
