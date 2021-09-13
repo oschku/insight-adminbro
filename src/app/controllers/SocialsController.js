@@ -73,6 +73,22 @@ module.exports = {
     }
 
 
-  }
+  },
+  async getAggregates(req, res) {
+    const socialId = req.params.socialId
+    const cards = await Socials.find({ socialId })
+
+    var likes = cards.map(x => x.liked)
+    likes = likes.filter(x => x === true)
+    likes = likes.length
+
+    data = {likes}
+    console.log(data)
+
+    data = Object.entries(data).map((e) => ( { [e[0]]: e[1] } ));
+    
+
+    res.send(data);
+  },
 
 };

@@ -27,6 +27,7 @@ const Cards = new Schema({
     resetHours: Number,
     minutes: Number,
     voucherId: Number,
+    feedType: String
   }, { timestamps: true });
   
   module.exports = model("Cards", Cards);

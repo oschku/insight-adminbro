@@ -22,6 +22,15 @@ const properties = {
                 { value: 'Lahjakortti', label: 'Lahjakortti' },
             ]
     },
+    feedType: { 
+        availableValues:
+            [
+                { value: 'general', label: 'Yleinen' },
+                { value: 'food', label: 'Ruoka' },
+                { value: 'drink', label: 'Juoma' },
+                { value: 'restaurant', label: 'Ravintola' },
+            ]
+    },
     updatedAt: {
         isVisible: { edit: false, show: true, list: true },
       },

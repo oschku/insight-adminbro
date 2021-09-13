@@ -45,6 +45,7 @@ server
   .get('/api/surveys/:id', Surveys.getOne)
   .get('/api/cards', Cards.index)
   .get('/api/cards/:id', Cards.getOne)
+  .get('/api/cards/social/:id', Cards.getById)
   .get('/api/vouchers', Vouchers.index)
   .get('/api/vouchers/:id', Vouchers.getOne)
   .get('/api/vouchers/user/:id', Vouchers.getUser)
@@ -62,6 +63,7 @@ server
   .get('/api/faq', Faqs.index)
   .get('/api/socials/all', Socials.index)
   .get('/api/socials/:userId', Socials.getOne)
+  .get('/api/socials/aggregates/:socialId', Socials.getAggregates)
   .post('/api/socials', Socials.postOne) 
 
 

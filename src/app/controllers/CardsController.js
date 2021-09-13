@@ -10,6 +10,11 @@ module.exports = {
     const id = req.params.id
     const cards = await Cards.find({ id })      
     res.send(cards);
+  },
+  async getById(req, res) {
+    const _id = req.params.id
+    const cards = await Cards.find({ _id })      
+    res.send(cards);
   }
 
 };
