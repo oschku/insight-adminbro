@@ -22,7 +22,7 @@ const properties = {
 };
 
 const listProperties = [
-    'name', 'couponType', 'voucherId'
+    'name', 'couponType', 'voucherId', 'probability'
 ];
 
 const actions = {

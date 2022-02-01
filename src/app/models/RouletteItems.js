@@ -14,6 +14,10 @@ const RouletteItems = new Schema({
     couponType: {
         type: String,
         required: true
+    },
+    probability: {
+        type: Number,
+        required: true
     }
   }, { timestamps: true });
   
