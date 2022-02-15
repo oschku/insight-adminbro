@@ -31,6 +31,9 @@ const properties = {
                 { value: 'restaurant', label: 'Ravintola' },
             ]
     },
+    formContent: {
+        type: 'richtext',
+    },
     updatedAt: {
         isVisible: { edit: false, show: true, list: true },
       },

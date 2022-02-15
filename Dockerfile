@@ -1,5 +1,5 @@
 # get the base node image
-FROM node:alpine
+FROM node:17.4.0-alpine
 
 # set the working dir for container
 WORKDIR /src
